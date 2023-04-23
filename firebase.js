@@ -6,13 +6,13 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 const firebaseConfig = {
     //...  
 
-     apiKey: "AIzaSyBEh0AqdxI9dd_w4zmw5rHnD7xgTwuanwE",
-  authDomain: "quiz-app-e8756.firebaseapp.com",
-  projectId: "quiz-app-e8756",
-  storageBucket: "quiz-app-e8756.appspot.com",
-  messagingSenderId: "893244706975",
-  appId: "1:893244706975:web:58b28c01ab39f1ad0652aa",
-  measurementId: "G-8531QMKN68"
+  apiKey: "AIzaSyDO-e46bMr6wNlsVOeYCv2hgcBYeLFNA7I",
+  authDomain: "treasure-app-a9a21.firebaseapp.com",
+  projectId: "treasure-app-a9a21",
+  storageBucket: "treasure-app-a9a21.appspot.com",
+  messagingSenderId: "255084907014",
+  appId: "1:255084907014:web:18b9230eed75c542349187",
+  measurementId: "G-JBJDFWH9JK"
 };
 
 const app = initializeApp(firebaseConfig);
