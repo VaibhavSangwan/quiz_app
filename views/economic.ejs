@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>PUZZLE PAGE 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'poppins', sans-serif;
+        }
+
+        section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            width: 100%;
+            background: black;
+            background: url('https://www.pixelstalk.net/wp-content/uploads/images6/Lofi-Wallpapers-HD-Free-download.jpg')no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .form-box {
+            position: relative;
+            width: 400px;
+            height: 450px;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: #fff;
+            text-align: center;
+        }
+
+        p {
+            font-size: 1.25em;
+            color: #fff;
+            text-align: center;
+        }
+
+        .inputbox {
+            position: relative;
+            margin: 30px 0;
+            width: 310px;
+            border-bottom: 2px solid #fff;
+        }
+
+        .inputbox label {
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 1em;
+            pointer-events: none;
+            transition: .5s;
+        }
+
+        input:focus~label,
+        input:valid~label {
+            top: -5px;
+        }
+
+        .inputbox input {
+            width: 100%;
+            height: 50px;
+            background: transparent;
+            border: none;
+            outline: none;
+            padding: 0 35px 0 5px;
+            color: #fff;
+            font-size: 1em;
+        }
+
+        .inputbox ion-icon {
+            position: absolute;
+            right: 8px;
+            color: #fff;
+            font-size: 1.2em;
+            top: 20px;
+        }
+
+        .forget {
+            margin: -15px 0 15px;
+            font-size: .9em;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+        }
+
+        .forget label input {
+            margin-right: 3px;
+        }
+
+        .forget label a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .forget label a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            width: 100%;
+            height: 40px;
+            border-radius: 40px;
+            background: #fff;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+        }
+
+        .register {
+            font-size: .9em;
+            color: #fff;
+            text-align: center;
+            margin: 25px 0 10px;
+        }
+
+        .register p a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .register p a:hover {
+            text-decoration: underline;
+        }
+
+        #countdown {
+            font-size: 1.5em;
+        }
+
+        #d {
+            font-size: 1.25em;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="" method="POST" id="form">
+                    <h2>Economic</h2><br><br>
+                    <p id="d">Lives : <%=ans%> &emsp; &emsp; &emsp; &emsp; &emsp; Score : 01</p><br>
+                    <p id="countdown">Timer : 00:00</p><br>
+                    <p>The Word for exchange Goods<br> and Services:</p>
+                    <div class="inputbox">
+                        <input type="text" required id="z">
+                        <input type="number" style="visibility: hidden;position: absolute;" name="time" id="x" value="">
+                        <label for="">Your Answer</label>
+                    </div>
+                    <form>
+                        <button onclick="ans()">Submit</button>
+                    </form>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script>
+        let time = 0;
+        const cdel = document.getElementById('countdown');
+        setInterval(updatecountdown, 1000);
+        function updatecountdown() {
+            let min = Math.floor(time / 60);
+            if (min < 10) min = "0" + min;
+            let sec = time % 60;
+            if (sec < 10) sec = "0" + sec;
+            cdel.innerHTML = `Timer : ${min}:${sec}`;
+            time++;
+        }
+        function ans(e) {
+            var z = document.getElementById("form");
+            var b = document.getElementById("x");
+            var y = document.getElementById("z").value;
+            let ans = "<%=ans%>";
+            if (y == "Trade") {
+                b.value = time;
+                z.action = `/quiz/drama/2/<%=UID%>`;
+            }
+            else {
+                ans--;
+                if (ans > 0) {
+                    z.method = "get";
+                    z.action = "/quiz/economic/1/<%=UID%>";
+                }
+                else {
+                    z.method = 'get';
+                    z.action = "/welcome/<%=UID%>";
+                }
+            }
+        }
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
